@@ -1,5 +1,5 @@
 <template>
-  <a :href="url" target="_blank">{{text}}</a>
+  <a :href="url" target="_blank">\{{text}}</a>
 </template>
 
 <script>
