@@ -1,13 +1,19 @@
-# {{ name }}
+# simple-template
 
-> {{ description }}
+> A simple project tempalte for ES6.
 
-## Build Setup
+## construction
+```
+.
+├── package.json  --------------------- 项目配置
+├── README.md  ------------------------ 说明文件
+├── webpack.config.js ----------------- webpack配置文件
+├── index.html  ----------------------- 入口页面
+└── src  ------------------------------ 源码目录
+```
 
+## Usage
 ``` bash
-# install dependencies
 npm install
-
-# serve with hot reload at localhost:8080
 npm run dev
 ```
