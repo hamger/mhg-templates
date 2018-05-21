@@ -1,8 +1,7 @@
 # simple-template
-
 > A simple project tempalte for ES6.
 
-## construction
+## Construction
 ```
 .
 ├── package.json  --------------------- 项目配置
@@ -14,6 +13,9 @@
 
 ## Usage
 ``` bash
+# 安装依赖
 npm install
+
+# 本地调试
 npm run dev
 ```
