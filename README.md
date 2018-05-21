@@ -26,25 +26,16 @@
 # 安装依赖
 npm install
 
-# 启动本地调试 localhost:8080
+# 启动本地调试
 npm run dev
 
 # 本地打包压缩
 npm run build
-
-# 本地打包压缩并查看项目
-npm run build --report
-
-# 生成page文件
-npm run init page `name`
-
-# 生成component文件
-npm run init component `name`
 ```
 ## 反代理配置
 
 本地代码想要访问测试环境接口可以通过以下配置
-`/config/index.js` 
+`/config/index.js`
 ``` bash
 dev: {
   proxyTable: {
