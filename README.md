@@ -1,66 +1,58 @@
-# vue-webpack-boilerplate
+# vue-template
 
-> A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
+> A Vue.js project tempalte
 
-> This template is Vue 2.0 compatible. For Vue 1.x use this command: `vue init webpack#1.0 my-project`
+## 项目结构 ##
 
-## Documentation
-
-- [For this template](http://vuejs-templates.github.io/webpack): common questions specific to this template are answered and each part is described in greater detail
-- [For Vue 2.0](http://vuejs.org/guide/): general information about how to work with Vue, not specific to this template
-
-## Usage
-
-This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It is recommended to use npm 3+ for a more efficient dependency tree.**
-
-``` bash
-$ npm install -g vue-cli
-$ vue init webpack my-project
-$ cd my-project
-$ npm install
-$ npm run dev
+```
+.
+├── package.json  --------------------- 项目配置
+├── README.md  ------------------------ 说明文件
+├── build  ---------------------------- 构建代码文件
+├── config  --------------------------- 构建配置文件
+├── index.html  ----------------------- 入口页面
+└── src  ------------------------------ 源码目录
+    ├── common  ----------------------- 公共资源目录
+    ├── components  ------------------- 组件集合目录
+    ├── pages  ------------------------ 页面集合目录
+    ├── router  ----------------------- vue-router目录
+    ├── App.vue  ---------------------- vue根组件文件
+    └── main.js  ---------------------- 项目入口文件
 ```
 
-This will scaffold the project using the `master` branch. If you wish to use the latest version of the webpack template, do the following instead:
+## 环境准备
 
 ``` bash
-$ vue init webpack#develop my-project
+# 安装依赖
+npm install
+
+# 启动本地调试 localhost:8080
+npm run dev
+
+# 本地打包压缩
+npm run build
+
+# 本地打包压缩并查看项目
+npm run build --report
+
+# 生成page文件
+npm run init page `name`
+
+# 生成component文件
+npm run init component `name`
 ```
+## 反代理配置
 
-:warning: **The develop branch is not considered stable and can contain bugs or not build at all, so use at your own risk.**
-
-The development server will run on port 8080 by default. If that port is already in use on your machine, the next free port will be used.
-
-## What's Included
-
-- `npm run dev`: first-in-class development experience.
-  - Webpack + `vue-loader` for single file Vue components.
-  - State preserving hot-reload
-  - State preserving compilation error overlay
-  - Lint-on-save with ESLint
-  - Source maps
-
-- `npm run build`: Production ready build.
-  - JavaScript minified with [UglifyJS v3](https://github.com/mishoo/UglifyJS2/tree/harmony).
-  - HTML minified with [html-minifier](https://github.com/kangax/html-minifier).
-  - CSS across all components extracted into a single file and minified with [cssnano](https://github.com/ben-eb/cssnano).
-  - Static assets compiled with version hashes for efficient long-term caching, and an auto-generated production `index.html` with proper URLs to these generated assets.
-  - Use `npm run build --report`to build with bundle size analytics.
-
-- `npm run unit`: Unit tests run in [JSDOM](https://github.com/tmpvar/jsdom) with [Jest](https://facebook.github.io/jest/), or in PhantomJS with Karma + Mocha + karma-webpack.
-  - Supports ES2015+ in test files.
-  - Easy mocking.
-
-- `npm run e2e`: End-to-end tests with [Nightwatch](http://nightwatchjs.org/).
-  - Run tests in multiple browsers in parallel.
-  - Works with one command out of the box:
-    - Selenium and chromedriver dependencies automatically handled.
-    - Automatically spawns the Selenium server.
-
-### Fork It And Make Your Own
-
-You can fork this repo to create your own boilerplate, and use it with `vue-cli`:
-
+本地代码想要访问测试环境接口可以通过以下配置
+`/config/index.js` 
 ``` bash
-vue init username/repo my-project
+dev: {
+  proxyTable: {
+    '/api': {
+      target: 'http://jsonplaceholder.typicode.com/',
+      changeOrigin: true,
+      pathRewrite: {'^/api': ''}
+    }
+  }
+}
 ```
