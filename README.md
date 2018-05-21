@@ -1,5 +1,5 @@
 # simple-template
-> A simple project tempalte for ES6.
+> A simple Webpack + babel-loader setup for the develop with ES6.
 
 ## Construction
 ```
