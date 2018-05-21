@@ -1,9 +1,7 @@
 # vue-template
-
 > A Vue.js project tempalte
 
-## 项目结构 ##
-
+## Construction
 ```
 .
 ├── package.json  --------------------- 项目配置
@@ -20,11 +18,10 @@
     └── main.js  ---------------------- 项目入口文件
 ```
 
-## 环境准备
-
+## Usage
 ``` bash
 # 安装依赖
-npm install
+npm instal
 
 # 启动本地调试
 npm run dev
@@ -32,8 +29,8 @@ npm run dev
 # 本地打包压缩
 npm run build
 ```
-## 反代理配置
 
+## Proxy
 本地代码想要访问测试环境接口可以通过以下配置
 `/config/index.js`
 ``` bash
