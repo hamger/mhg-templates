@@ -5,7 +5,8 @@
     "author": "{{ author }}",
     "license": "{{ license }}",
     "scripts": {
-	    "dev": "webpack-dev-server --open --hot"
+	    "dev": "webpack-dev-server --open --hot",
+        "build": "node build/build.js"
 	},
     "devDependencies":
     {
