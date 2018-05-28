@@ -7,7 +7,7 @@
     <HelloWorld/>
     {{/router}}
     {{#vuex}}
-    <h1>{{ $store.state.example }}</h1>
+    <h1>\{{ $store.state.example }}</h1>
     {{/vuex}}
   </div>
 </template>
