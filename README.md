@@ -1,5 +1,5 @@
 # cms-template
-> A cms-template with Vue.js and element.js.
+> A template of content management system with Vue.js and element.js.
 
 ## Construction
 ```

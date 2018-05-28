@@ -8,14 +8,14 @@
         <ul class="nav-list">
           <li v-for="item in url" :class="{open: item.active}">
             <a :class="['nav-item-title', item.icon]"  @click="item.active = !item.active">
-            {{item.name}}<i class="icon-nav-tab"></i>
+            \{{item.name}}<i class="icon-nav-tab"></i>
             </a>
             <ul class="nav-item-children">
               <li v-for="(item2, index2) in item.children"
                 :class="{'nav-item-child': true,
                 'nav-item-this': item2.url === curUrl}"
                 @click="curUrl = item2.url"
-                ><router-link :to="item2.url">{{item2.name}}</router-link>
+                ><router-link :to="item2.url">\{{item2.name}}</router-link>
               </li>
             </ul>
           </li>
@@ -24,7 +24,7 @@
     </div>
     <main class="Page-right">
       <header class="status-header">
-        <div class="status-box">{{ $store.state.userName }}</div>
+        <div class="status-box">\{{ $store.state.userName }}</div>
       </header>
       <div class="main">
         <router-view/>
