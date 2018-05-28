@@ -23,10 +23,21 @@
       </nav>
     </div>
     <main class="Page-right">
-      <header class="status-header">
-        <div class="status-box">\{{ $store.state.userName }}</div>
-      </header>
-      <div class="main">
+      <div class="Page-header">
+        <span class="Page-header-title">CMS</span>
+        <span class="Page-header-user" @click="statusList = !statusList">\{{ $store.state.userName }}</span>
+        <div class="layout-list-wrapper" v-show="statusList">
+          <ul class="layout-list">
+            <li class="layout-list-item">
+              <router-link to="" class="layout-list-item-personalData">我的资料</router-link>
+            </li>
+            <li class="layout-list-item">
+              <router-link to="" class="layout-list-item-exitSystem">退出登录</router-link>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="Page-body">
         <router-view/>
       </div>
     </main>
@@ -40,6 +51,7 @@ export default {
   data () {
     return {
       curUrl: '/ModuleA/Page',
+      statusList: false,
       url: [
         {
           name: 'A类模块',
@@ -81,13 +93,8 @@ export default {
 @import './common/css/layout.css';
 #app {
   height: 100%;
-  .nav-list {
+  .nav-list, .layout-list, .Page-header-user {
     user-select: none;
-  }
-  .main {
-    margin: 10px;
-    background-color: #fff;
-    height: 100%;
   }
 }
 </style>
