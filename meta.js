@@ -1,3 +1,4 @@
+/* 解释 https://www.jianshu.com/p/3944152d34d6 */ 
 const path = require('path')
 const fs = require('fs')
 
@@ -73,6 +74,11 @@ module.exports = {
       when: 'isNotTest',
       type: 'confirm',
       message: 'Install vue-router?',
+    },
+    vuex:{
+      when: 'isNotTest',
+      type: "confirm",
+      message: "Install vuex?"
     },
     lint: {
       when: 'isNotTest',
@@ -170,6 +176,7 @@ module.exports = {
     'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
+    'src/vuex/**/*': 'vuex',
   },
   complete: function(data, { chalk }) {
     const green = chalk.green
