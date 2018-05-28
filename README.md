@@ -1,14 +1,23 @@
-# simple-template
-> A simple Webpack + babel-loader setup for the develop with ES6.
+# cms-template
+> A cms-template with Vue.js and element.js.
 
 ## Construction
 ```
 .
 ├── package.json  --------------------- 项目配置
 ├── README.md  ------------------------ 说明文件
-├── webpack.config.js ----------------- webpack配置文件
+├── build  ---------------------------- 构建代码文件
+├── config  --------------------------- 构建配置文件
 ├── index.html  ----------------------- 入口页面
+├── static  --------------------------- 静态资源目录
 └── src  ------------------------------ 源码目录
+    ├── common  ----------------------- 公共资源目录
+    ├── components  ------------------- 组件集合目录
+    ├── pages  ------------------------ 页面集合目录
+    ├── router  ----------------------- vue-router目录
+    ├── vuex  ------------------------- vuex目录
+    ├── App.vue  ---------------------- vue根组件文件
+    └── main.js  ---------------------- 项目入口文件
 ```
 
 ## Usage

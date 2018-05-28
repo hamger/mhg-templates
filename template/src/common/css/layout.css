@@ -1,0 +1,205 @@
+
+html{
+    height: 100%;
+}
+body{
+    font-family: "Helvetica Neue", Helvetica, Arial, "Pingfang SC", "Microsoft Yahei", Sans-serif;
+    height: 100%;
+    overflow: hidden;
+    background-color: #F2F4F9;
+}
+/*å·¦è¾¹ä¾§è¾¹æ */
+.Page-left{
+    width: 200px;
+    height: 100%;
+    float: left;
+    background-color: #27282C;
+}
+.navs-header{
+    background-color: #27282C;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+}
+.navs-header-logo{
+    height: 22px;
+}
+.nav-item-title{
+    position: relative;
+    display: block;
+    padding: 9px 0 9px 20px;
+    color: #fff;
+    font-size: 12px;
+}
+.nav-item-title:before{
+    content: ' ';
+    display: inline-block;
+}
+.nav-item-title:hover{
+    cursor: pointer;
+    color: #fff;
+}
+.icon-nav-tab{
+    position: absolute;
+    right: 22px;
+    top: 10px;
+}
+.icon-nav-tab:before{
+    content: '';
+    display: inline-block;
+    background: url('/static/images/icon-nav-right.png') no-repeat center;
+    background-size: 6px 8px;
+    width: 6px;
+    height: 8px;
+}
+.nav-item-children{
+    display: none;
+}
+.nav-item-child a {
+    position: relative;
+    display: block;
+    padding:9px 0 9px 54px;
+    color: #AFAFAF;
+    font-size: 12px;
+}
+.nav-item-child a:hover{
+    background-color: #373737;
+    cursor: pointer;
+}
+.nav-orderTask-tag{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    color: #fff;
+    background-color: #FF8903;
+    font-size: 12px;
+    border-radius: 50%;
+    text-align: center;
+}
+.nav-item-this{
+    background-color: #373737;
+}
+.nav-item-this a{
+    color: #fff;
+}
+.open .nav-item-children{
+    display: block;
+}
+.open .icon-nav-tab:before{
+    background: url('/static/images/icon-nav-down.png') no-repeat center;
+    background-size: 8px 6px;
+    width: 8px;
+    height: 6px;
+}
+/*è®¢å•ç®¡ç†*/
+.nav-order-manage:before{
+    width: 10px;
+    height: 12px;
+    margin-right: 12px;
+    background: url("/static/images/icon-order-manage.png")  no-repeat center;
+    background-size: 10px 12px;
+    vertical-align: middle;
+}
+.nav-assets-manage:before{
+    width: 11px;
+    height: 12px;
+    margin-right: 11px;
+    background: url("/static/images/icon-assets-manage.png")  no-repeat center;
+    background-size: 11px 12px;
+    vertical-align: middle;
+}
+/*å³ä¾§å†…å®¹åŒº*/
+.Page-right{
+    padding-left: 200px;
+    height: 100%;
+}
+.Page-header{
+    box-sizing:border-box;
+    position: absolute;
+    left: 200px;
+    top: 0;
+    right: 0;
+    height: 60px;
+    background-color: #fff;
+}
+.Page-header-title{
+    line-height: 60px;
+    padding-left: 20px;
+    font-size: 16px;
+    color: #373737;
+    font-weight: 700;
+}
+.Page-header-user{
+    position: absolute;
+    top: 24px;
+    right: 10px;
+    font-size: 12px;
+    color: #373737;
+    cursor: pointer;
+    z-index: 2;
+}
+.Page-header-user:after{
+    content: '';
+    border-width: 4px 3px 3px 4px;
+    border-style: solid;
+    border-color: #373737 transparent transparent transparent;
+    vertical-align: -8px;
+    margin-left: 10px;
+}
+.Page-body{
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 60px;
+}
+
+/*ç”¨æˆ·å¿«æ·åŒºåŸŸ*/
+.layout-list-wrapper{
+    position: absolute;
+    top:60px;
+    right: 10px;
+    z-index: 100;
+    width:100px;
+    background-color: #fff;
+    padding: 6px 0 8px;
+    box-shadow: 2px 4px 4px #E7E7E7;
+}
+.layout-list-item a{
+    display: block;
+    padding: 10px 0;
+    font-size: 12px;
+    text-align: center;
+    color: #373737;
+}
+.layout-list-item-personalData:before{
+    content: '';
+    display: inline-block;
+    background: url("/static/images/icon-personal-data.png") no-repeat center;
+    background-size: 9px 12px;
+    height: 12px;
+    width: 12px;
+    margin-right: 6px;
+}
+.layout-list-item-exitSystem:before{
+    content: '';
+    display: inline-block;
+    background: url("/static/images/icon-exit-login.png") no-repeat center;
+    background-size: 11px 12px;
+    height: 11px;
+    width: 12px;
+    margin-right: 6px;
+}
+/* 顶部状态栏 */
+.status-header {
+    height: 55px;
+    line-height: 55px;
+    padding: 0 10px;
+    background-color: #fff;
+}
+
+.status-box {
+    float: right;
+}

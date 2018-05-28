@@ -1,4 +1,23 @@
-let obj1 = {value1: 'hello'}
-let obj2 = {value2: 'world'}
-let obj3 = Object.assign(obj1, obj2)
-document.write(obj3.value1 + ' ' + obj3.value2)
+// The Vue build version to load with the `import` command
+// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+import Vue from 'vue'
+import App from './App'
+import router from './router'
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+
+import Vuex from 'vuex'
+import store from  './vuex/store'
+Vue.use(Vuex)
+
+Vue.config.productionTip = false
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  router,
+  store,
+  components: { App },
+  template: '<App/>'
+})
