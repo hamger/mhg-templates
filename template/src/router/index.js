@@ -7,7 +7,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'page',
+      name: 'default',
       component: function (resolve) {
         require(['@/pages/ModuleA/Page/Page'], resolve)
       }
