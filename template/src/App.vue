@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scope>
 @import './common/css/reset.css';
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
