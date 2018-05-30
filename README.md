@@ -1,5 +1,5 @@
 # mhg-templates
-some templates for mhg-cli
+Some templates for mhg-cli.
 
 ## Current available templates 
 
