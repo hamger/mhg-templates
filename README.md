@@ -4,7 +4,7 @@
 ## Construction
 ```
 .
-├── package.json  --------------------- 项目配置
+├── package.json  --------------------- 项目描述
 ├── README.md  ------------------------ 说明文件
 ├── webpack.config.js ----------------- webpack配置文件
 ├── index.html  ----------------------- 入口页面
