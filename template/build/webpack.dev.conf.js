@@ -1,13 +1,17 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
 const path = require('path')
+const utils = require('./utils')
 
-module.exports = {
-  entry: './demo/index.js',
-  output: './dist/',
-  devtool: "eval-source-map",
+var webpackConfig = {
+  entry: utils.getEntry('src/**/index.js'),
+  output: {
+    path: path.resolve(__dirname, '../dist'),
+    filename: '[name]-[hash:5].js',
+  },
+  devtool: 'eval-source-map',
   resolve: {
-    extensions: [".jsx", ".json", ".js"],
+    extensions: ['.jsx', '.json', '.js'],
     alias: {
       '@': path.resolve(__dirname, '../src')
     }
@@ -17,10 +21,12 @@ module.exports = {
       {
         test: /.js$/,
         loaders: ['babel-loader', 'eslint-loader'],
-        include: [
-          path.resolve(__dirname, '../src'), 
-          path.resolve(__dirname, '../demo')
-        ]
+        include: [path.resolve(__dirname, '../src')]
+      },
+      {
+        test: /.s[c|a]ss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+        include: [path.resolve(__dirname, '../src')]
       }
     ]
   },
@@ -29,12 +35,21 @@ module.exports = {
     hot: true,
     compress: true
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+  plugins: [new webpack.HotModuleReplacementPlugin()]
+}
+
+// 在不同的页面中插入对应的js文件
+var htmls = utils.getEntry('src/**/index.html')
+var pages = Object.keys(htmls)
+pages.forEach(filename => {
+  webpackConfig.plugins.push(
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'demo/index.html',
-      inject: true
+      filename: `${filename}.html`,
+      template: htmls[filename],
+      inject: 'head',
+      chunks: [filename]
     })
-  ]
-};
+  )
+})
+
+module.exports = webpackConfig

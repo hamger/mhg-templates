@@ -1,11 +1,13 @@
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
+const utils = require('./utils')
 
-module.exports = {
-  entry: './src/index.js',
+var webpackConfig = {
+  entry: utils.getEntry('src/**/index.js'),
   output: {
-    filename: 'app.js',
-    path: path.resolve(__dirname, '../dist')
+    path: path.resolve(__dirname, '../dist'),
+    filename: '[name]/[name].js'
   },
   resolve: {
     extensions: [".jsx", ".json", ".js"],
@@ -19,6 +21,11 @@ module.exports = {
         test: /.js$/,
         loader: 'babel-loader',
         include: [path.resolve(__dirname, '../src')]
+      },
+      {
+        test: /.s[c|a]ss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+        include: [path.resolve(__dirname, '../src')]
       }
     ]
   },
@@ -26,3 +33,19 @@ module.exports = {
     new UglifyJsPlugin()
   ]
 }
+
+// 在不同的页面中插入对应的js文件
+var htmls = utils.getEntry('src/**/index.html')
+var pages = Object.keys(htmls)
+pages.forEach(filename => {
+  webpackConfig.plugins.push(
+    new HtmlWebpackPlugin({
+      filename: `${filename}/${filename}.html`,
+      template: htmls[filename],
+      inject: 'head',
+      chunks: [filename]
+    })
+  )
+})
+
+module.exports = webpackConfig
