@@ -6,11 +6,11 @@
 ## Usage
 如果你使用`mhg-cli`，输入如下命令
 ```bash
-hg init pages [projectName]
+hg init package [projectName]
 ```
 如果你使用`vue-cli`，输入如下命令
 ```
-vue init hamger/mhg-templates#pages [projectName]
+vue init hamger/mhg-templates#package [projectName]
 ```
 其中`projectName`为指定的项目名称
 
@@ -24,20 +24,14 @@ vue init hamger/mhg-templates#pages [projectName]
 └── src  ------------------------------ 源码目录
 ```
 
-## Start
-### 安装依赖
+## Build Setup
 ``` bash
+# install dependencies
 npm install
-```
 
-### 本地开发
-```bash
+# serve with hot reload at localhost:8080
 npm run dev
-```
-访问`http://localhost:8080`进入开发页面。
 
-
-### 打包代码
-```bash
+# package the code
 npm run build
 ```
