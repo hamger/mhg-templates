@@ -1,5 +1,18 @@
 # package-template
-> A template of developing for javascript package.
+> webpack + babel + eslint
+
+用于 JavaScript 包开发的项目模板
+
+## Usage
+如果你使用`mhg-cli`，输入如下命令
+```bash
+hg init pages [projectName]
+```
+如果你使用`vue-cli`，输入如下命令
+```
+vue init hamger/mhg-templates#pages [projectName]
+```
+其中`projectName`为指定的项目名称
 
 ## Construction
 ```
@@ -11,14 +24,20 @@
 └── src  ------------------------------ 源码目录
 ```
 
-## Usage
+## Start
+### 安装依赖
 ``` bash
-# 安装依赖
 npm install
+```
 
-# 本地调试
+### 本地开发
+```bash
 npm run dev
+```
+访问`http://localhost:8080`进入开发页面。
 
-# 打包代码
+
+### 打包代码
+```bash
 npm run build
 ```
