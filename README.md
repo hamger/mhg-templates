@@ -1,16 +1,13 @@
 # mhg-templates
-Some templates for mhg-cli.
+Some templates for [mhg-cli](https://github.com/hamger/mhg-cli)
 
 ## Current available templates 
-
-- [vue](https://github.com/hamger/mhg-templates/tree/vue) - webpack + vue-loader + hot reload + linting + testing + css extraction.
-
 - [simple](https://github.com/hamger/mhg-templates/tree/simple) - webpack + babel-loader.
 
-- [dev](https://github.com/hamger/mhg-templates/tree/dev) - webpack + babel-loader + eslint, for developing in web site.
+- [pages](https://github.com/hamger/mhg-templates/tree/pages) - webpack + babel-loader + eslint + sass, for developing in multiple pages.
 
 - [package](https://github.com/hamger/mhg-templates/tree/package) - webpack + babel-loader + eslint, for developing in javascript package.
 
-- [cms](https://github.com/hamger/mhg-templates/tree/cms) - A template of content management system with Vue.js and element.js.
+- [vue](https://github.com/hamger/mhg-templates/tree/vue) - webpack + vue-loader + vuex + hot reload + linting + testing + css extraction.
 
-- [pages](https://github.com/hamger/mhg-templates/tree/pages) - webpack + babel-loader + eslint + sass, for developing in multiple pages.
+- [cms](https://github.com/hamger/mhg-templates/tree/cms) - A template of content management system with Vue.js and element.js.
