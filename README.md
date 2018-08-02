@@ -8,6 +8,6 @@ Some templates for [mhg-cli](https://github.com/hamger/mhg-cli)
 
 - [package](https://github.com/hamger/mhg-templates/tree/package) - webpack + babel-loader + eslint, for developing in javascript package.
 
-- [vue](https://github.com/hamger/mhg-templates/tree/vue) - webpack + vue-loader + vuex + hot reload + linting + testing + css extraction.
+- [vue](https://github.com/hamger/mhg-templates/tree/vue) - webpack + vue + vuex + hot reload + linting + testing + css extraction.
 
-- [cms](https://github.com/hamger/mhg-templates/tree/cms) - A template of content management system with Vue.js and element.js.
+- [cms](https://github.com/hamger/mhg-templates/tree/cms) - webpack + vue + vuex + element-ui, for content management system.
