@@ -1,5 +1,18 @@
 # simple-template
-> A simple Webpack + babel-loader setup for the develop with ES6.
+> webpack + babel
+
+一个简单的支持 ES6 编写的项目模板
+
+## Usage
+如果你使用`mhg-cli`，输入如下命令
+```bash
+hg init simple [projectName]
+```
+如果你使用`vue-cli`，输入如下命令
+```
+vue init hamger/mhg-templates#simple [projectName]
+```
+其中`projectName`为指定的项目名称
 
 ## Construction
 ```
@@ -11,11 +24,14 @@
 └── src  ------------------------------ 源码目录
 ```
 
-## Usage
+## Start
 ``` bash
-# 安装依赖
+# install dependencies
 npm install
 
-# 本地调试
+# serve with hot reload at localhost:8080
 npm run dev
+
+# package the code
+npm run build
 ```
