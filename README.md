@@ -24,7 +24,7 @@ vue init hamger/mhg-templates#simple [projectName]
 └── src  ------------------------------ 源码目录
 ```
 
-## Start
+## Build Setup
 ``` bash
 # install dependencies
 npm install
