@@ -6,12 +6,13 @@
           <img class="navs-header-logo" src="/static/images/icon-logo-maihaoche.png">
         </div>
         <ul class="nav-list">
-          <li v-for="item in url" :class="{open: item.active}">
+          <li v-for="(item, index) in url" :key="index" :class="{open: item.active}">
             <a :class="['nav-item-title', item.icon]"  @click="item.active = !item.active">
             \{{item.name}}<i class="icon-nav-tab"></i>
             </a>
             <ul class="nav-item-children">
               <li v-for="(item2, index2) in item.children"
+                :key="index2"
                 :class="{'nav-item-child': true,
                 'nav-item-this': item2.url === curUrl}"
                 @click="curUrl = item2.url"
@@ -45,55 +46,57 @@
 </template>
 
 <script>
-import HollowArrow from '@/components/HollowArrow/HollowArrow';
+import HollowArrow from "@/components/HollowArrow/HollowArrow";
 export default {
-  name: 'App',
-  data () {
+  name: "App",
+  data() {
     return {
-      curUrl: '/ModuleA/Page',
+      curUrl: "/ModuleA/Page",
       statusList: false,
       url: [
         {
-          name: 'A类模块',
+          name: "A类模块",
           active: true,
-          icon: 'nav-order-manage',
+          icon: "nav-order-manage",
           children: [
             {
-              name: '子模块一',
-              url: '/ModuleA/Page'
-            },
+              name: "子模块一",
+              url: "/ModuleA/Page"
+            }
           ]
         },
         {
-          name: 'B类模块',
+          name: "B类模块",
           active: false,
-          icon: 'nav-assets-manage',
+          icon: "nav-assets-manage",
           children: [
             {
-              name: '子模块一',
-              url: '/ModuleB/Page2'
+              name: "子模块一",
+              url: "/ModuleB/Page2"
             },
             {
-              name: '子模块二',
-              url: '/ModuleB/Page3'
-            },
+              name: "子模块二",
+              url: "/ModuleB/Page3"
+            }
           ]
         }
       ]
-    }
+    };
   },
   components: {
     HollowArrow
   }
-}
+};
 </script>
 
 <style lang="scss" scope>
-@import './common/css/reset.css';
-@import './common/css/layout.css';
+@import "./common/css/reset.css";
+@import "./common/css/layout.css";
 #app {
   height: 100%;
-  .nav-list, .layout-list, .Page-header-user {
+  .nav-list,
+  .layout-list,
+  .Page-header-user {
     user-select: none;
   }
 }
