@@ -6,7 +6,7 @@ const resolve = utils.resolve
 var webpackConfig = {
   entry: './src/index.js',
   output: {
-    filename: 'cvs.js',
+    filename: {{ name }} + '.js',
     path: path.resolve(__dirname, '../dist')
   },
   resolve: {
