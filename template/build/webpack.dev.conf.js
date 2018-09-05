@@ -1,13 +1,19 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
 const path = require('path')
+const utils = require('./utils')
+const resolve = utils.resolve
 
-module.exports = {
-  entry: './demo/index.js',
-  output: './dist/',
-  devtool: "eval-source-map",
+var webpackConfig = {
+  entry: utils.getEntry('demo/**/index.js'),
+  output: {
+    path: path.resolve(__dirname, '../dist'),
+    publicPath: '/',
+    filename: '[name]-[hash:5].js'
+  },
+  devtool: 'eval-source-map',
   resolve: {
-    extensions: [".jsx", ".json", ".js"],
+    extensions: ['.tsx', '.ts', '.js', '.jsx'],
     alias: {
       '@': path.resolve(__dirname, '../src')
     }
@@ -15,26 +21,47 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.js$/,
-        loaders: ['babel-loader', 'eslint-loader'],
+        test: /\.(js)$/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
         include: [
-          path.resolve(__dirname, '../src'), 
-          path.resolve(__dirname, '../demo')
+          resolve('src'),
+          resolve('test'),
+          resolve('demo')
         ]
+      },
+      {
+        test: /.js$/,
+        loaders: ['babel-loader'],
+        include: [resolve('src'), resolve('demo')]
+      },
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        include: [resolve('src')]
+      },
+      {
+        test: /.s[c|a]ss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+        include: [resolve('demo')]
       }
     ]
   },
-  devServer: {
-    clientLogLevel: 'warning',
-    hot: true,
-    compress: true
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+  plugins: [new webpack.HotModuleReplacementPlugin()]
+}
+
+// 在不同的页面中插入对应的js文件
+var htmls = utils.getEntry('demo/**/index.html')
+var pages = Object.keys(htmls)
+pages.forEach(filename => {
+  webpackConfig.plugins.push(
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'demo/index.html',
-      inject: true
+      filename: `${filename}/index.html`,
+      template: htmls[filename],
+      inject: true,
+      chunks: [filename]
     })
-  ]
-};
+  )
+})
+
+module.exports = webpackConfig
