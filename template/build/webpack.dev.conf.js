@@ -48,6 +48,9 @@ var webpackConfig = {
     ]
   },
   devServer: {
+    clientLogLevel: 'warning',
+    hot: true,
+    compress: true,
     // 配置控制台打印
     stats: {
       hash: false,
