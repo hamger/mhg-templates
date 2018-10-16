@@ -4,20 +4,16 @@ const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')
 const merge = require('webpack-merge')
-const packageConfig = require('../package.json')
 const baseWebpackConfig = require('./webpack.base.conf')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const { PublishWebpackPluginV3: PublishWebpackPlugin } = require('eevee-publish-webpack-plugin')
-const Uploader = require('eevee-uploader-qiniu').default;
 
 const env = {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : {{/if_or}}require('../config/prod.env')
-
 const webpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
@@ -51,7 +47,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       filename: utils.assetsPath('css/[name].[contenthash].css'),
       // Setting the following option to `false` will not extract CSS from codesplit chunks.
       // Their CSS will instead be inserted dynamically with style-loader when the codesplit chunk has been loaded by webpack.
-      // It's currently set to `true` because we are seeing that sourcemaps are included in the codesplit bundle as well when it's `false`,
+      // It's currently set to `true` because we are seeing that sourcemaps are included in the codesplit bundle as well when it's `false`, 
       // increasing file size: https://github.com/vuejs-templates/webpack/issues/1110
       allChunks: true,
     }),
@@ -85,7 +81,6 @@ const webpackConfig = merge(baseWebpackConfig, {
     new webpack.HashedModuleIdsPlugin(),
     // enable scope hoisting
     new webpack.optimize.ModuleConcatenationPlugin(),
-
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
@@ -117,39 +112,13 @@ const webpackConfig = merge(baseWebpackConfig, {
     }),
 
     // copy custom static assets
-    // new CopyWebpackPlugin([
-    //   {
-    //     from: path.resolve(__dirname, '../static'),
-    //     to: config.build.assetsSubDirectory,
-    //     ignore: ['.*']
-    //   }
-    // ]),
-
-    // 发布eevee
-    new PublishWebpackPlugin({
-      server: process.env.PUBLISH_ENV === 'production' ? 'https://eevee.maihaoche.com' : 'http://hhhhh.haimaiche.net/api',
-      publicPath: 'https://img.maihaoche.com/mhc-fe/{{name}}',
-      projectId: process.env.PUBLISH_ENV === 'production' ? packageConfig.projectId.production : packageConfig.projectId.daily,
-      env: process.env.PUBLISH_ENV,
-      handleJavascripts(javascripts) {
-        const sort = ['vendor', 'manifest', 'app']
-        return [
-          ...javascripts.filter(i => /manifest/.test(i)),
-          ...javascripts.filter(i => /vendor/.test(i)),
-          ...javascripts.filter(i => /app/.test(i))
-        ]
-      },
-      uploaders: [
-        new Uploader({
-          host: "https://img.maihaoche.com",
-          accessKey: packageConfig.uploaderKey.accessKey,
-          secretKey: packageConfig.uploaderKey.secretKey,
-          bucket: "maihaoche",
-          basePath: "mhc-fe/{{name}}/static",
-          glob: "./dist/static/**/*.*"
-        })
-      ]
-    })
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../static'),
+        to: config.build.assetsSubDirectory,
+        ignore: ['.*']
+      }
+    ])
   ]
 })
 
