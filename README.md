@@ -1,13 +1,16 @@
 # mhg-templates
 Some templates for [mhg-cli](https://github.com/hamger/mhg-cli)
 
-## Current available templates 
-- [simple](https://github.com/hamger/mhg-templates/tree/simple) - webpack + babel-loader.
+## Current available templates
 
-- [pages](https://github.com/hamger/mhg-templates/tree/pages) - webpack + babel-loader + eslint + sass, for developing in multiple pages.
+- [simple](https://github.com/hamger/mhg-templates/tree/simple) - A template of ES6 dedevelopment with webpack + babel-loader.
 
-- [package](https://github.com/hamger/mhg-templates/tree/package) - webpack + babel-loader + eslint, for developing in javascript package.
+- [pages](https://github.com/hamger/mhg-templates/tree/pages) - A template of dedevelopment in multiple pages with webpack + babel-loader + eslint + sass.
 
-- [vue](https://github.com/hamger/mhg-templates/tree/vue) - webpack + vue + vuex + hot reload + linting + testing + css extraction.
+- [package](https://github.com/hamger/mhg-templates/tree/package) - A template of dedevelopment in javascript package with webpack + babel-loader + eslint.
 
-- [cms](https://github.com/hamger/mhg-templates/tree/cms) - webpack + vue + vuex + element-ui, for content management system.
+- [vue](https://github.com/hamger/mhg-templates/tree/vue) - A template of vue with webpack + vue + vuex + hot reload + linting + testing + css extraction.
+
+- [ele-admin](https://github.com/hamger/mhg-templates/tree/ele-admin) - A template of content management system with vue + element-ui.
+
+- [react](https://github.com/hamger/mhg-templates/tree/react) - A template of react with webpack + react + react-router4 + redux + less.
