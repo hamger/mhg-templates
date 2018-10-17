@@ -1,74 +1,56 @@
-// https://eslint.org/docs/user-guide/configuring
-
 module.exports = {
-  root: true,
-  parserOptions: {
-    parser: 'babel-eslint'
-  },
+  extends: "airbnb",
   env: {
     browser: true,
+    node: true,
+    mocha: true,
+    jest: true,
+    es6: true,
   },
-  {{#if_eq lintConfig "standard"}}
-  extends: [
-    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-    // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-    'plugin:vue/essential', 
-    // https://github.com/standard/standard/blob/master/docs/RULES-en.md
-    'standard'
-  ],
-  {{/if_eq}}
-  {{#if_eq lintConfig "airbnb"}}
-  // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-  // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-  extends: ['plugin:vue/essential', 'airbnb-base'],
-  {{/if_eq}}
-  {{#if_eq lintConfig "none"}}
-  // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-  // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-  extends: ['plugin:vue/essential'],
-  {{/if_eq}}
-  // required to lint *.vue files
+  parser: 'babel-eslint',
   plugins: [
-    'vue'
+    "react"
   ],
-  {{#if_eq lintConfig "airbnb"}}
-  // check if imports actually resolve
-  settings: {
-    'import/resolver': {
-      webpack: {
-        config: 'build/webpack.base.conf.js'
-      }
-    }
-  },
-  {{/if_eq}}
-  // add your custom rules here
   rules: {
-    {{#if_eq lintConfig "standard"}}
-    // allow async-await
-    'generator-star-spacing': 'off',
-    {{/if_eq}}
-    {{#if_eq lintConfig "airbnb"}}
-    // don't require .vue extension when importing
-    'import/extensions': ['error', 'always', {
-      js: 'never',
-      vue: 'never'
-    }],
-    // disallow reassignment of function parameters
-    // disallow parameter object manipulation except for specific exclusions
-    'no-param-reassign': ['error', {
-      props: true,
-      ignorePropertyModificationsFor: [
-        'state', // for vuex state
-        'acc', // for reduce accumulators
-        'e' // for e.returnvalue
-      ]
-    }],
-    // allow optionalDependencies
-    'import/no-extraneous-dependencies': ['error', {
-      optionalDependencies: ['test/unit/index.js']
-    }],
-    {{/if_eq}}
-    // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'class-methods-use-this': 0,
+    'func-names': 0,
+    'react/sort-comp': 0,
+    'react/prop-types': 0,
+    'react/jsx-first-prop-new-line': 0,
+    'no-param-reassign': 0,
+    'no-return-assign': 0,
+    'max-len': 0,
+    'react/jsx-no-bind': 0,
+    'react/no-multi-comp': 0,
+    'array-callback-return': 0,
+    'import/no-unresolved': 0,
+    'jsx-a11y/img-has-alt': 0,
+    'import/extensions': 0,
+    'import/no-extraneous-dependencies': 0,
+    'react/no-string-refs': 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx", ".md"] }],
+    'react/no-array-index-key': 0,
+    'react/no-find-dom-node': 0,
+    'react/require-extension': 0,
+    'jsx-a11y/anchor-has-content': 0,
+    'jsx-a11y/href-no-hash': 0,
+    'jsx-a11y/no-static-element-interactions': 0,
+    'jsx-a11y/click-events-have-key-events': 0,
+    'prefer-destructuring': 0,
+    'jsx-a11y/anchor-is-valid': 0,
+    'react/jsx-no-comment-textnodes': 0,
+    'object-curly-newline': 0,
+    'react/jsx-one-expression-per-line': 0,
+    'no-void': 0,
+    'no-nested-ternary': 0,
+    'mouse-events-have-key-events': 0,
+  },
+  globals: {
+    React: true,
+    ReactDOM: true,
+    mountNode: true,
+    $: true,
+    dd: true,
+    process: true
   }
 }

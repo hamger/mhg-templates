@@ -1,5 +1,5 @@
-# vue-template
-> A Vue.js project tempalte
+# react-template
+> A simple react project tempalte
 
 ## Construction
 ```
@@ -7,15 +7,18 @@
 ├── package.json  --------------------- 项目描述
 ├── README.md  ------------------------ 说明文件
 ├── build  ---------------------------- 构建配置
-├── config  --------------------------- 参数配置
-├── index.html  ----------------------- 入口页面
 └── src  ------------------------------ 源码目录
-    ├── common  ----------------------- 公共资源目录
-    ├── components  ------------------- 组件集合目录
-    ├── pages  ------------------------ 页面集合目录
-    ├── router  ----------------------- vue-router目录
-    ├── App.vue  ---------------------- vue根组件文件
-    └── main.js  ---------------------- 项目入口文件
+    ├── assets  ----------------------- 资源文件
+    ├── components  ------------------- 组件集合
+    ├── views  ------------------------ 页面集合
+    ├── store  ------------------------ redux
+    ├── router.js  -------------------- 项目路由
+    └── index.js  --------------------- 项目入口
+├── babelrc --------------------------- babel配置
+├── .eslintrc ------------------------- eslint配置
+├── .gitignore ------------------------ git忽略配置
+├── postcss.config.js ----------------- postcss配置
+└── webpack.config.js ----------------- 判断环境
 ```
 
 ## Usage
@@ -28,19 +31,4 @@ npm run dev
 
 # 本地打包压缩
 npm run build
-```
-
-## Proxy
-本地代码想要访问测试环境接口可以通过以下配置
-`/config/index.js`
-``` bash
-dev: {
-  proxyTable: {
-    '/api': {
-      target: 'http://jsonplaceholder.typicode.com/',
-      changeOrigin: true,
-      pathRewrite: {'^/api': ''}
-    }
-  }
-}
 ```
