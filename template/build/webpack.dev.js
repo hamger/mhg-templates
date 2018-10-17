@@ -18,8 +18,16 @@ const config = merge.smart(baseConfig, {
   },
 
   devServer: {
+    clientLogLevel: 'warning',
     hot: true,
-    port: 8888,
+    compress: true,
+    // 配置控制台打印
+    stats: {
+      hash: false,
+      assets: false,
+      version: false,
+      modules: false
+    }
   },
 
 })

@@ -1,5 +1,18 @@
 # react-template
-> A simple react project tempalte
+> webpack + react + react-router4 + redux + less
+
+用于 react 项目开发的基础模板
+
+## Usage
+使用`mhg-cli`，输入如下命令
+```bash
+hg init react [projectName]
+```
+后者使用`vue-cli`，输入如下命令
+```
+vue init hamger/mhg-templates#react [projectName]
+```
+其中`projectName`为指定的项目名称
 
 ## Construction
 ```
@@ -21,14 +34,14 @@
 └── webpack.config.js ----------------- 判断环境
 ```
 
-## Usage
+## Build Setup
 ``` bash
-# 安装依赖
-npm instal
+# install dependencies
+npm install
 
-# 启动本地调试
+# serve with hot reload at localhost:8080
 npm run dev
 
-# 本地打包压缩
+# package the code
 npm run build
 ```

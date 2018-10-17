@@ -9,7 +9,7 @@
       "type": "string",
       "required": true,
       "label": "Project description",
-      "default": "A package project"
+      "default": "A react project"
     },
     "author": {
       "type": "string",
