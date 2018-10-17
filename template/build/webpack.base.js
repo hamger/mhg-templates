@@ -79,7 +79,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'index.ejs',
+      template: 'index.html',
       minify: {
         minifyCSS: true,
         minifyJS: true,

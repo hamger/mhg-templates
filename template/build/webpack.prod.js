@@ -1,12 +1,11 @@
 const merge = require('webpack-merge');
-const path = require('path');
-const baseConfig = require('./webpack.base');
 const MiniExtractPlugin = require('mini-css-extract-plugin');
 const cleanWebpackPlugin = require('clean-webpack-plugin');
+const baseConfig = require('./webpack.base');
 
 const config = merge.smart(baseConfig, {
   output: {
-    publicPath: "./",
+    publicPath: './'
   },
 
   module: {
@@ -21,13 +20,15 @@ const config = merge.smart(baseConfig, {
         ]
       }
     ]
-  },
-})
+  }
+});
 
-config.plugins.push(new MiniExtractPlugin({
-  filename: 'css/[name].[hash:8].css',
-  chunkFilename: '[id].[hash:8].css'
-}));
+config.plugins.push(
+  new MiniExtractPlugin({
+    filename: 'css/[name].[hash:8].css',
+    chunkFilename: '[id].[hash:8].css'
+  })
+);
 
 config.plugins.push(new cleanWebpackPlugin('dist'));
 
