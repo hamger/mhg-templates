@@ -21,6 +21,7 @@ const config = merge.smart(baseConfig, {
     clientLogLevel: 'warning',
     hot: true,
     compress: true,
+    open: false,
     // 配置控制台打印
     stats: {
       hash: false,
