@@ -88,9 +88,9 @@ var pages = Object.keys(htmls)
 pages.forEach(filename => {
   webpackConfig.plugins.push(
     new HtmlWebpackPlugin({
-      filename: `${filename}.html`,
+      filename: `${filename}/index.html`,
       template: htmls[filename],
-      inject: 'head',
+      inject: true,
       chunks: [filename]
     })
   )

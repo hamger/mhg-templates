@@ -80,7 +80,7 @@ pages.forEach(filename => {
     new HtmlWebpackPlugin({
       filename: `${filename}/${filename}.html`,
       template: htmls[filename],
-      inject: 'head',
+      inject: true,
       chunks: [filename]
     })
   )
