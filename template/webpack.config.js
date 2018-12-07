@@ -20,9 +20,16 @@ module.exports = {
     extensions: ['*', '.js', '.json']//后缀名自动补全
   },
   devServer: {
-    historyApiFallback: true,
-    noInfo: true,
-    overlay: true
+    clientLogLevel: 'warning',
+    hot: true,
+    compress: true,
+    stats: {
+      hash: false,
+      assets: false,
+      version: false,
+      modules: false,
+      timings: false
+    }
   },
   performance: {// 配置如何展示性能提示(false不提示)
     hints: false
