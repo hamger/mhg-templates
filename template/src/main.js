@@ -10,7 +10,7 @@ import router from './router'
 
 {{#vuex}}
 import Vuex from 'vuex'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import store from  './vuex/store'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import store from './vuex/store'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 Vue.use(Vuex){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/vuex}}
 
