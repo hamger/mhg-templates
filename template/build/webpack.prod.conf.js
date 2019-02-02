@@ -6,7 +6,7 @@ const resolve = utils.resolve
 var webpackConfig = {
   entry: './src/index.js',
   output: {
-    filename: 'app.js',
+    filename: 'app.min.js',
     path: path.resolve(__dirname, '../dist')
   },
   resolve: {
@@ -20,25 +20,12 @@ var webpackConfig = {
       {
         test: /.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('demo')]
+        include: [resolve('src')]
       },
       {
         test: /\.tsx?$/,
         loader: 'ts-loader',
         include: [resolve('src')]
-      },
-      {
-        test: /.s[c|a]ss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-        include: [resolve('demo')]
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: path.join('assets', '[name].[ext]')
-        }
       }
     ]
   },

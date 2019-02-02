@@ -11,6 +11,8 @@
     "tonpm": "npm run build && npm version patch && npm publish",
     "test": "karma start"
   },
+  "main": "dist/app.min.js",
+  "keywords": [],
   "devDependencies": {
     "annotate-webpack-plugin": "^0.1.1",
     "babel-core": "^6.26.0",
