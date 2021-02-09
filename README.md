@@ -1,5 +1,5 @@
 # react-template
-> webpack + react + react-router4 + redux + less
+> webpack + react + react-router + redux + less
 
 用于 react 项目开发的基础模板
 
@@ -17,21 +17,21 @@ vue init hamger/mhg-templates#react [projectName]
 ## Construction
 ```
 .
-├── package.json  --------------------- 项目描述
-├── README.md  ------------------------ 说明文件
+├── build  ---------------------------- webpack构建配置
 ├── build  ---------------------------- 构建配置
 └── src  ------------------------------ 源码目录
-    ├── assets  ----------------------- 资源文件
     ├── components  ------------------- 组件集合
-    ├── views  ------------------------ 页面集合
+    ├── pages  ------------------------ 页面集合
     ├── store  ------------------------ redux
     ├── router.js  -------------------- 项目路由
     └── index.js  --------------------- 项目入口
-├── babelrc --------------------------- babel配置
-├── .eslintrc ------------------------- eslint配置
-├── .gitignore ------------------------ git忽略配置
-├── postcss.config.js ----------------- postcss配置
-└── webpack.config.js ----------------- 判断环境
+├── static  --------------------------- 资源文件
+├── .babelrc.js ----------------------- babel 配置
+├── .eslintrc.js ---------------------- eslint 配置
+├── .gitignore ------------------------ git 忽略配置
+├── postcss.config.js ----------------- postcss 配置
+├── package.json
+└──  README.md
 ```
 
 ## Build Setup

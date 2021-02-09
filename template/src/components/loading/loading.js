@@ -1,9 +1,8 @@
-import './loading.less';
+import React from 'react';
 
-const Loading = isShow => (
-  <div className={isShow ? 'loading-wrap active' : 'loading-wrap'}>
-    <div className="load-item" />
-    <div className="load-item" />
+const Loading = ({ isShow }) => (
+  <div>
+    {isShow ? '加载中' : ''}
   </div>
 );
 

@@ -1,20 +1,20 @@
 import React from 'react';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
-import User from './views/user/user';
-import Test from './views/test/test';
+import Home from '@/pages/home/home';
+import None from '@/pages/none/none';
 
 const routers = [
   {
-    name: 'user',
+    name: 'home',
     path: '/',
-    component: User,
+    component: Home,
     exact: true,
   },
   {
-    name: 'test',
-    path: '/test',
-    component: Test,
+    name: 'none',
+    path: '/none',
+    component: None,
   },
 ];
 
@@ -32,23 +32,5 @@ const App = () => (
     </Switch>
   </Router>
 );
-
-// class App extends React.Component {
-//   constructor(props) {
-//     super(props);
-//   }
-//
-//   render() {
-//     return (
-//       <Router>
-//         <Switch>
-//           {
-//             routers.map(v => <Route key={v.name} exact={v.exact} path={v.path} component={v.component} />)
-//           }
-//         </Switch>
-//       </Router>
-//     );
-//   }
-// }
 
 export default App;

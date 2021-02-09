@@ -1,6 +1,6 @@
-# {{ name }}
+# react-mobile
 
-> {{ description }}
+> A react project
 
 ## Build Setup
 

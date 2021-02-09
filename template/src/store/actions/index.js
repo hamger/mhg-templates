@@ -1,7 +1,7 @@
-import * as user from './user';
+import * as home from './home';
 
 const actions = {
-  user,
+  home,
 };
 
 export default actions;

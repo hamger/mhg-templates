@@ -7,7 +7,7 @@ module.exports = {
     jest: true,
     es6: true,
   },
-  parser: 'babel-eslint',
+  parser: "@babel/eslint-parser",
   plugins: [
     "react"
   ],
@@ -56,9 +56,6 @@ module.exports = {
   globals: {
     React: true,
     ReactDOM: true,
-    mountNode: true,
-    $: true,
-    dd: true,
-    process: true
+    $: true
   }
 }

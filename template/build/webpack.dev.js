@@ -1,22 +1,35 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const baseConfig = require('./webpack.base');
+const baseConfig = require('./webpack.common');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = merge.smart(baseConfig, {
+  mode: 'development',
   module: {
     rules: [
       {
         test: /\.less$/,
         use: [
           'style-loader',
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
           'postcss-loader',
-          'less-loader',
-        ]
+          {
+            loader: "less-loader",
+            options: {
+              lessOptions: {
+                javascriptEnabled: true
+              }
+            }
+          }
+        ],
       }
     ]
   },
-
   devServer: {
     clientLogLevel: 'warning',
     hot: true,
@@ -30,9 +43,14 @@ const config = merge.smart(baseConfig, {
       modules: false
     }
   },
-
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.html',
+      inject: true
+    }),
+    new webpack.HotModuleReplacementPlugin()
+  ]
 })
-
-config.plugins.push(new webpack.HotModuleReplacementPlugin());
 
 module.exports = config;

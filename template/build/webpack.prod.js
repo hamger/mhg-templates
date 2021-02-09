@@ -1,35 +1,59 @@
+const path = require('path');
 const merge = require('webpack-merge');
 const MiniExtractPlugin = require('mini-css-extract-plugin');
-const cleanWebpackPlugin = require('clean-webpack-plugin');
-const baseConfig = require('./webpack.base');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const baseConfig = require('./webpack.common');
 
 const config = merge.smart(baseConfig, {
-  output: {
-    publicPath: './'
-  },
-
+  mode: 'production',
+  // optimization: {
+  //   minimize: false,
+  //   sideEffects: true,
+  //   usedExports: true,
+  //   providedExports: true
+  // },
   module: {
     rules: [
       {
         test: /\.less$/,
         use: [
           MiniExtractPlugin.loader,
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
           'postcss-loader',
-          'less-loader'
+          {
+            loader: "less-loader",
+            options: {
+              lessOptions: {
+                javascriptEnabled: true
+              }
+            }
+          }
         ]
       }
     ]
-  }
+  },
+  plugins: [
+    new MiniExtractPlugin({
+      filename: 'css/[name].[hash:8].css',
+      chunkFilename: '[id].[hash:8].css'
+    }),
+    new HtmlWebpackPlugin({
+      filename: path.resolve(__dirname, '../dist/index.html'),
+      template: 'index.html',
+      inject: true,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+      },
+      chunksSortMode: 'dependency'
+    }),
+  ]
 });
-
-config.plugins.push(
-  new MiniExtractPlugin({
-    filename: 'css/[name].[hash:8].css',
-    chunkFilename: '[id].[hash:8].css'
-  })
-);
-
-config.plugins.push(new cleanWebpackPlugin('dist'));
 
 module.exports = config;
