@@ -30,8 +30,12 @@ const store = createStore(rootReducer, applyMiddleware(thunk))
 
 export default store;
 
+
+const dispatchersMap = {}
+
 export function useModel(type) {
     const state = useSelector(state => state[type]);
+    const rootState = useSelector(state => state);
     const dispatch = useDispatch()
     const effects = models[type].effects((obj) => {
         dispatch({
@@ -39,12 +43,14 @@ export function useModel(type) {
             payload: obj
         })
     })
-    const dispatchers = {}
-    const rootState = useSelector(state => state);
-    Object.keys(effects).forEach(item => {
-        dispatchers[item] = (obj) => {
-            return effects[item](obj, rootState)
-        }
-    })
-    return [state, dispatchers]
+    if (!dispatchersMap[type]) {
+        const dispatchers = {}
+        Object.keys(effects).forEach(item => {
+            dispatchers[item] = (obj) => {
+                return effects[item](obj, rootState)
+            }
+        })
+        dispatchersMap[type] = dispatchers
+    }
+    return [state, dispatchersMap[type]]
 }

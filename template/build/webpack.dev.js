@@ -2,6 +2,12 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const baseConfig = require('./webpack.common');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const apiMocker = require('webpack-api-mocker')
+const path = require('path');
+
+function resolve(dir) {
+  return path.join(__dirname, '..', dir)
+}
 
 const config = merge.smart(baseConfig, {
   mode: 'development',
@@ -41,6 +47,9 @@ const config = merge.smart(baseConfig, {
       assets: false,
       version: false,
       modules: false
+    },
+    before(app) {
+      apiMocker(app, resolve('mock/index.js'))
     }
   },
   plugins: [

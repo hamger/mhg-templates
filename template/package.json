@@ -10,6 +10,14 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.js",
     "lint": "eslint ./src --fix"
   },
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
+    "react-router-dom": "^5.0.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
@@ -36,15 +44,10 @@
     "less-loader": "^7.2.1",
     "mini-css-extract-plugin": "^0.4.1",
     "postcss-loader": "^2.1.6",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-redux": "^7.2.2",
-    "react-router-dom": "^5.0.0",
-    "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0",
     "style-loader": "^0.22.0",
     "url-loader": "^1.0.1",
     "webpack": "^4.16.5",
+    "webpack-api-mocker": "^1.7.6",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5",
     "webpack-merge": "^4.1.4"
