@@ -7,11 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 const generateReducer = (type) => {
     const reducer = (state = models[type].state, action) => {
         if (action.type === `${type}/setStatus`) {
-            console.log('state', state)
-            console.log('action', action)
-            const res = Object.assign({}, state, action.payload)
-            console.log(res)
-            return res
+            return Object.assign({}, state, action.payload)
         } else {
             return state;
         }
@@ -30,12 +26,12 @@ const store = createStore(rootReducer, applyMiddleware(thunk))
 
 export default store;
 
-
 const dispatchersMap = {}
+let rootState = {}
 
 export function useModel(type) {
     const state = useSelector(state => state[type]);
-    const rootState = useSelector(state => state);
+    rootState = useSelector(state => state);
     const dispatch = useDispatch()
     const effects = models[type].effects((obj) => {
         dispatch({
